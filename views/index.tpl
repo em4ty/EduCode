@@ -13,7 +13,7 @@
         <p><a href="/python" class="btn btn-primary">Подробнее &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <img src="/static/images/Cplus_logo.png" alt="C++ Logo" class="logo">
+        <img src="/static/images/Cplus_logo.png" alt="C++ Logo" class="logocplus">
         <h2>C++</h2>
         <p>Системный язык программирования с высокой производительностью.</p>
         <p><a href="/cpp" class="btn btn-primary">Подробнее &raquo;</a></p>

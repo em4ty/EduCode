@@ -42,10 +42,14 @@ input[type="checkbox"].input-validation-error {
 }
 
 .logo {
-    max-width: 100px; 
-    margin-bottom: 10px;
+    max-width: 200px; 
+    margin-bottom: 20px;
 }
 
+.logocplus {
+    max-width: 400px;
+    margin-bottom: 10px;
+}
 .jumbotron {
     background-color: rgba(0, 0, 0, 0.5); 
     color: white;
