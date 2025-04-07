@@ -22,6 +22,6 @@
         <img src="/static/images/JS.png" alt="JavaScript Logo" class="logo">
         <h2>JavaScript</h2>
         <p>Язык для разработки интерактивных веб-приложений.</p>
-        <p><a href="/javascript" class="btn btn-primary">Подробнее &raquo;</a></p>
+        <p><a href="javascript:location.reload();" class="btn btn-primary">Подробнее &raquo;</a></p>
     </div>
 </div>
