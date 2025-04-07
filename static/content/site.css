@@ -161,3 +161,30 @@ input[type="checkbox"].input-validation-error {
         padding: 1.5rem 1rem;
     }
 }
+
+.feature-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    height: 100%;
+    transition: transform 0.3s;
+}
+
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+
+    .feature-card h4 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+    }
+
+
+    .feature-card i {
+        color: #3498db;
+        margin-right: 10px;
+    }

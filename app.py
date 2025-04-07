@@ -40,6 +40,10 @@ if __name__ == '__main__':
     @bottle.route('/python')
     def python_course():
         return bottle.template('python_course', year=datetime.now().year)
+    
+    @bottle.route('/cpp')
+    def cpp_course():
+        return bottle.template('cpp_course', year=datetime.now().year)
 
     @bottle.route('/static/<filepath:path>')
     def server_static(filepath):
