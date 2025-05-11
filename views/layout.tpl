@@ -19,25 +19,61 @@
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="/" class="navbar-brand">Курсы по программированию</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/home">Главная</a></li>
-                    <li><a href="/about">О нас</a></li>
-                    <li><a href="/contact">Контакты</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li><a href="/">Главная</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #ffcc00; font-weight: bold;">
+                <i class="glyphicon glyphicon-user"></i> Юмашкин <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" style="background-color: #2c3e50; border: 1px solid #34495e;">
+                <li><a href="/reviews" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
+                    <i class="glyphicon glyphicon-comment"></i> Отзывы
+                </a></li>
+                <li><a href="/articles" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
+                    <i class="glyphicon glyphicon-book"></i> Полезные статьи
+                </a></li>
+                <li><a href="/orders" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
+                    <i class="glyphicon glyphicon-shopping-cart"></i> Оформленные заказы
+                </a></li>
+                <li><a href="/news" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
+                    <i class="glyphicon glyphicon-bullhorn"></i> Актуальные новинки
+                </a></li>
+                <li><a href="/partners" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
+                    <i class="glyphicon glyphicon-handshake"></i> Партнёрские компании
+                </a></li>
+                <li><a href="/users" style="color: #ecf0f1; padding: 10px 20px;">
+                    <i class="glyphicon glyphicon-stats"></i> Активные пользователи
+                </a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #00ccff; font-weight: bold;">
+                <i class="glyphicon glyphicon-user"></i> Товтоган <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" style="background-color: #2c3e50; border: 1px solid #34495e;">
+                <li><a href="/reviews2" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
+                    <i class="glyphicon glyphicon-comment"></i> Отзывы
+                </a></li>
+                <li><a href="/articles2" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
+                    <i class="glyphicon glyphicon-book"></i> Полезные статьи
+                </a></li>
+                <li><a href="/orders2" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
+                    <i class="glyphicon glyphicon-shopping-cart"></i> Оформленные заказы
+                </a></li>
+                <li><a href="/news2" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
+                    <i class="glyphicon glyphicon-bullhorn"></i> Актуальные новинки
+                </a></li>
+                <li><a href="/partners2" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
+                    <i class="glyphicon glyphicon-handshake"></i> Партнёрские компании
+                </a></li>
+                <li><a href="/users2" style="color: #ecf0f1; padding: 10px 20px;">
+                    <i class="glyphicon glyphicon-stats"></i> Активные пользователи
+                </a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
 
     <div class="container body-content">
         {{!base}}

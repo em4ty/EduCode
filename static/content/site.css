@@ -5,20 +5,20 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Основное содержимое */
+/* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Стили для форм */
+/* пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ */
 input,
 select,
 textarea {
     max-width: 280px;
 }
 
-/* Стили для валидации */
+/* пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 .field-validation-error {
     color: #b94a48;
 }
@@ -43,7 +43,7 @@ input[type="checkbox"].input-validation-error {
     display: none;
 }
 
-/* Общие стили логотипов */
+/* пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 .logo {
     max-width: 200px;
     height: auto;
@@ -61,7 +61,7 @@ input[type="checkbox"].input-validation-error {
     margin-bottom: 10px;
 }
 
-/* Стили для страницы курса */
+/* пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ */
 .course-logo {
     max-height: 150px;
     margin-bottom: 20px;
@@ -97,7 +97,7 @@ input[type="checkbox"].input-validation-error {
         margin-bottom: 8px;
     }
 
-/* Стили для Jumbotron */
+/* пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ Jumbotron */
 .jumbotron {
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
@@ -108,7 +108,7 @@ input[type="checkbox"].input-validation-error {
     background-image: linear-gradient(to right, rgba(0,0,0,0.8), rgba(52,152,219,0.6));
 }
 
-/* Навигационная панель */
+/* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ */
 .navbar {
     background-color: rgba(0, 0, 0, 0.85);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -118,7 +118,7 @@ input[type="checkbox"].input-validation-error {
     font-weight: bold;
 }
 
-/* Кнопки */
+/* пїЅпїЅпїЅпїЅпїЅпїЅ */
 .btn-primary {
     background-color: #3498db;
     border-color: #2980b9;
@@ -143,7 +143,7 @@ input[type="checkbox"].input-validation-error {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-/* Адаптивность */
+/* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 @media (max-width: 768px) {
     .logo {
         max-width: 150px;
@@ -162,40 +162,40 @@ input[type="checkbox"].input-validation-error {
     }
 }
 
-/* Обновленные стили для карточек особенностей C++ */
+/* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ C++ */
 .feature-card {
-    background: #ffffff; /* Белый фон вместо #f8f9fa */
+    background: #ffffff; /* пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ #f8f9fa */
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
     height: 100%;
     transition: transform 0.3s;
-    border: 1px solid #e0e0e0; /* Добавим границу */
+    border: 1px solid #e0e0e0; /* пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 }
 
     .feature-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        background: #f5f5f5; /* Легкий hover-эффект */
+        background: #f5f5f5; /* пїЅпїЅпїЅпїЅпїЅпїЅ hover-пїЅпїЅпїЅпїЅпїЅпїЅ */
     }
 
     .feature-card h4 {
-        color: #2c3e50; /* Темно-синий для заголовков */
+        color: #2c3e50; /* пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
         margin-bottom: 15px;
     }
 
     .feature-card p {
-        color: #333333; /* Черный для основного текста */
+        color: #333333; /* пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ */
     }
 
     .feature-card i {
-        color: #3498db; /* Синий для иконок */
+        color: #3498db; /* пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ */
         margin-right: 10px;
     }
 
-/* Обновленные стили для кнопок в C++ курсе */
+/* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ C++ пїЅпїЅпїЅпїЅпїЅ */
 .btn-outline-cpp {
-    color: #2c3e50; /* Темный текст */
+    color: #2c3e50; /* пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ */
     border-color: #2c3e50;
     background-color: white;
 }
@@ -205,10 +205,10 @@ input[type="checkbox"].input-validation-error {
         background-color: #2c3e50;
     }
 
-/* Дополнительно: стили для контента C++ курса */
+/* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ C++ пїЅпїЅпїЅпїЅпїЅ */
 .cpp-course-content {
-    background-color: white; /* Белый фон контента */
-    color: #333; /* Основной текст черный */
+    background-color: white; /* пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
+    color: #333; /* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ */
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -222,4 +222,97 @@ input[type="checkbox"].input-validation-error {
 
     .cpp-course-content h3 {
         color: #3498db;
+    }
+/* РЎС‚РёР»Рё РґР»СЏ РЅР°РІРёРіР°С†РёРѕРЅРЅРѕРіРѕ РјРµРЅСЋ */
+.navbar {
+    background-color: rgba(44, 62, 80, 0.9) !important;
+    border: none !important;
+}
+
+.navbar-nav > li > a {
+    color: #ecf0f1 !important;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+    .navbar-nav > li > a:hover,
+    .navbar-nav > li > a:focus {
+        color: #3498db !important;
+        background-color: transparent !important;
+    }
+
+.dropdown-menu {
+    min-width: 220px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+}
+
+    .dropdown-menu > li > a:hover,
+    .dropdown-menu > li > a:focus {
+        background-color: #3498db !important;
+        color: white !important;
+    }
+
+/* РРєРѕРЅРєРё РІ РјРµРЅСЋ */
+.glyphicon {
+    margin-right: 8px;
+}
+
+/* РђРЅРёРјР°С†РёСЏ РІС‹РїР°РґР°СЋС‰РµРіРѕ РјРµРЅСЋ */
+.dropdown-menu {
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.yumashkin-container {
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.yumashkin-header {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+}
+
+.yumashkin-form {
+    margin-bottom: 20px;
+}
+
+/* РЎС‚РёР»Рё РґР»СЏ СЌР»РµРјРµРЅС‚РѕРІ СЃРїРёСЃРєР° */
+.items-list {
+    margin-top: 30px;
+}
+
+.review-item, .article-item, .order-item,
+.news-item, .partner-item, .user-item {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+    .review-item:hover, .article-item:hover, .order-item:hover,
+    .news-item:hover, .partner-item:hover, .user-item:hover {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transform: translateY(-3px);
+    }
+
+/* РЎС‚РёР»Рё РґР»СЏ С„РѕСЂРј */
+.panel-primary {
+    border-color: #3498db;
+}
+
+    .panel-primary .panel-heading {
+        background-color: #3498db;
+        border-color: #3498db;
     }

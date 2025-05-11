@@ -19,9 +19,9 @@
         <p><a href="/cpp" class="btn btn-primary">Подробнее &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <img src="/static/images/JS.png" alt="JavaScript Logo" class="logo">
-        <h2>JavaScript</h2>
-        <p>Язык для разработки интерактивных веб-приложений.</p>
-        <p><a href="javascript:location.reload();" class="btn btn-primary">Подробнее &raquo;</a></p>
+        <img src="/static/images/JS.png" alt="Java Logo" class="logo">
+        <h2>Java</h2>
+        <p>Мощный язык для корпоративных и мобильных приложений.</p>
+        <p><a href="/java" class="btn btn-primary">Подробнее &raquo;</a></p>
     </div>
 </div>

@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Statya",
+    "author": "Arterm",
+    "content": "There are currently two versions of Python, Python 2 and Python 3, which are not fully compatible with each other. At the time of writing, the second version of Python is still widely used, but judging by the changes that are taking place over time, it will remain only to run the old code. In our work with you, we will use Python 3, and in the future, if the word Python occurs somewhere, then it should be understood as Python 3. Python 2 applications will be specifically discussed.",
+    "date": "2025-05-11",
+    "created_at": "2025-05-11T21:56:20.219140"
+  },
+  {
+    "title": "Statya2",
+    "author": "Empty",
+    "content": "To install the Python interpreter on your computer, the first thing to do is download the distribution package. You can download it from the official website by clicking on the link",
+    "date": "2025-05-11",
+    "created_at": "2025-05-11T21:58:23.817389"
+  }
+]
