@@ -1,95 +1,62 @@
-% rebase('layout.tpl', title='Отзывы', year=year)
+% rebase('layout.tpl', title='Reviews', year=year)
 
-<style>
-    /* Основные стили для всей страницы */
-    .container {
-        color: #000000; /* Чёрный цвет для всего текста в контейнере */
-    }
-    
-    /* Стили для отзывов */
-    .review-item {
-        color: #000000;  /* Чёрный цвет текста */
-        background-color: #ffffff;  /* Белый фон */
-        border: 1px solid #dddddd;  /* Граница */
-        margin-bottom: 15px;
-        padding: 15px;
-        border-radius: 5px;
-    }
-    .review-author {
-        color: #000000; /* Чёрный цвет */
-        font-weight: bold;
-        font-size: 1.2em;
-        margin-bottom: 5px;
-    }
-    .review-date {
-        color: #000000; /* Чёрный цвет (был #666) */
-        font-size: 0.9em;
-        opacity: 0.8; /* Лёгкая прозрачность для даты */
-    }
-    .review-text {
-        color: #000000; /* Чёрный цвет */
-        margin-top: 10px;
-        line-height: 1.5;
-    }
-    
-    /* Стили для формы */
-    .well {
-        color: #000000; /* Чёрный цвет текста в форме */
-    }
-    .form-control {
-        color: #000000; /* Чёрный цвет в input */
-    }
-    label {
-        color: #000000; /* Чёрный цвет для меток */
-    }
-    
-    /* Заголовки */
-    h1, h2, h3 {
-        color: #000000; /* Чёрный цвет для заголовков */
-    }
-    
-    /* Сообщение когда нет отзывов */
-    .no-reviews {
-        color: #000000; /* Чёрный цвет */
-    }
-</style>
+<link rel="stylesheet" href="/static/css/yumashkin.css">
 
-<div class="container">
-    <h1>Отзывы о курсах</h1>
+<div class="container yumashkin-container">
+    <h1 class="yumashkin-page-title">Course Reviews</h1>
     
-    <!-- Форма добавления отзыва -->
-    <div class="well" style="margin-bottom: 30px;">
-        <h3>Добавить отзыв</h3>
+    <!--Отзывы заполнение -->
+    <div class="yumashkin-form-container">
+        <h3 class="yumashkin-form-title">Add Review</h3>
         <form method="POST" action="/reviews">
             <div class="form-group">
-                <label>Ваше имя:</label>
-                <input type="text" name="author" class="form-control" value="{{author or ''}}" required>
+                <label class="yumashkin-form-label">Your Name:</label>
+                <input type="text" name="author" class="form-control yumashkin-form-input" 
+                       value="{{author or ''}}" required>
             </div>
             
             <div class="form-group">
-                <label>Текст отзыва:</label>
-                <textarea name="text" class="form-control" rows="4" required>{{text or ''}}</textarea>
+                <label class="yumashkin-form-label">Review Text:</label>
+                <textarea name="text" class="form-control yumashkin-form-textarea" 
+                          rows="4" required>{{text or ''}}</textarea>
             </div>
             
             <div class="form-group">
-                <label>Дата:</label>
-                <input type="date" name="date" class="form-control" value="{{date or ''}}" required>
+                <label class="yumashkin-form-label">Date:</label>
+                <input type="date" name="date" class="form-control yumashkin-form-input" 
+                       value="{{date or ''}}" required>
             </div>
             
-            <button type="submit" class="btn btn-primary">Отправить отзыв</button>
+            <button type="submit" class="btn btn-primary yumashkin-btn">Submit Review</button>
         </form>
     </div>
 
-    <!-- Список отзывов -->
-    <h2>Последние отзывы</h2>
+    <!-- Ошибка дисплея -->
+    % if errors:
+    <div class="alert alert-danger yumashkin-alert">
+        <h4>Errors:</h4>
+        <ul>
+            % for error in errors:
+            <li>{{error}}</li>
+            % end
+        </ul>
+    </div>
+    % end
+
+    <!-- Отзыв лист -->
+    <h2 class="yumashkin-section-title">Recent Reviews</h2>
     % if not reviews:
-    <p class="no-reviews">Пока нет отзывов. Будьте первым!</p>
+    <p class="yumashkin-no-items">No reviews yet. Be the first!</p>
     % else:
     % for review in reviews:
-    <div class="review-item">
-        <div class="review-author">{{review.get('author', 'Аноним')}}</div>
-        <div class="review-date">{{review.get('date', '')}}</div>
-        <div class="review-text">{{review.get('text', '')}}</div>
+    <div class="yumashkin-card">
+        <div class="yumashkin-card-header">
+            <div class="yumashkin-card-title">{{review.get('author', 'Anonymous')}}</div>
+            <div class="yumashkin-card-meta">{{review.get('date', '')}}</div>
+        </div>
+        <div class="yumashkin-card-content">
+            {{review.get('text', '')}}
+        </div>
     </div>
     % end
     % end

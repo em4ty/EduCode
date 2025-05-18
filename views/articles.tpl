@@ -1,81 +1,37 @@
-% rebase('layout.tpl', title='Полезные статьи', year=year)
+% rebase('layout.tpl', title='Useful Articles', year=year)
 
-<style>
-    /* Общие стили для страницы статей */
-    .container {
-        color: #000000;
-    }
-    
-    /* Стили для статей */
-    .article-item {
-        color: #000000;
-        background-color: #ffffff;
-        border: 1px solid #dddddd;
-        margin-bottom: 20px;
-        padding: 20px;
-        border-radius: 5px;
-    }
-    .article-title {
-        color: #000000;
-        font-weight: bold;
-        font-size: 1.3em;
-        margin-bottom: 5px;
-    }
-    .article-meta {
-        color: #000000;
-        opacity: 0.8;
-        font-size: 0.9em;
-        margin-bottom: 10px;
-    }
-    .article-content {
-        color: #000000;
-        margin-top: 15px;
-        line-height: 1.6;
-    }
-    
-    /* Стили для формы */
-    .article-form {
-        background-color: #f8f9fa;
-        padding: 20px;
-        border-radius: 5px;
-        margin-bottom: 30px;
-    }
-    .form-label {
-        font-weight: bold;
-        color: #000000;
-    }
-</style>
+<link rel="stylesheet" href="/static/css/yumashkin.css">
 
 <div class="container">
-    <h1>Полезные статьи</h1>
+    <h1>Useful Articles</h1>
     
-    <!-- Форма добавления статьи -->
+    <!-- Форма для добавления новой статьи -->
     <div class="article-form">
-        <h3>Добавить новую статью</h3>
+        <h3>Add New Article</h3>
         <form method="POST" action="/articles">
             <div class="form-group">
-                <label class="form-label">Название статьи:</label>
+                <label class="form-label">Article Title:</label>
                 <input type="text" name="title" class="form-control" value="{{title or ''}}" required>
             </div>
             
             <div class="form-group">
-                <label class="form-label">Автор:</label>
+                <label class="form-label">Author:</label>
                 <input type="text" name="author" class="form-control" value="{{author or ''}}" required>
             </div>
             
             <div class="form-group">
-                <label class="form-label">Содержание:</label>
+                <label class="form-label">Content:</label>
                 <textarea name="content" class="form-control" rows="6" required>{{content or ''}}</textarea>
             </div>
             
-            <button type="submit" class="btn btn-primary">Опубликовать статью</button>
+            <button type="submit" class="btn btn-primary">Publish Article</button>
         </form>
     </div>
 
-    <!-- Вывод ошибок -->
+    <!-- Блок для отображения ошибок валидации -->
     % if errors:
     <div class="alert alert-danger">
-        <h4>Ошибки:</h4>
+        <h4>Errors:</h4>
         <ul>
             % for error in errors:
             <li>{{error}}</li>
@@ -84,17 +40,17 @@
     </div>
     % end
 
-    <!-- Список статей -->
-    <h2>Последние статьи</h2>
+    <!-- Секция со списком существующих статей -->
+    <h2>Recent Articles</h2>
     % if not articles:
-    <p>Пока нет статей. Будьте первым автором!</p>
+    <p>No articles yet. Be the first author!</p>
     % else:
     % for article in articles:
     <div class="article-item">
-        <div class="article-title">{{article.get('title', 'Без названия')}}</div>
+        <div class="article-title">{{article.get('title', 'Untitled')}}</div>
         <div class="article-meta">
-            Автор: {{article.get('author', 'Неизвестен')}} | 
-            Дата: {{article.get('date', '')}}
+            Author: {{article.get('author', 'Unknown')}} | 
+            Date: {{article.get('date', '')}}
         </div>
         <div class="article-content">
             {{!article.get('content', '')}}

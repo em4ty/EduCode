@@ -1,86 +1,40 @@
-% rebase('layout.tpl', title='Актуальные новинки', year=year)
+% rebase('layout.tpl', title='Latest News', year=year)
 
-<style>
-    /* Общие стили */
-    .container {
-        color: #000000;
-        padding: 20px;
-    }
-    
-    /* Стили карточек новинок */
-    .news-card {
-        background-color: #ffffff;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .news-title {
-        font-size: 1.4em;
-        font-weight: bold;
-        margin-bottom: 10px;
-        color: #000000;
-    }
-    .news-meta {
-        color: #666666;
-        margin-bottom: 15px;
-        font-size: 0.9em;
-    }
-    .news-content {
-        line-height: 1.6;
-        color: #000000;
-    }
-    
-    /* Стили формы */
-    .news-form {
-        background-color: #f8f9fa;
-        padding: 20px;
-        border-radius: 8px;
-        margin-bottom: 30px;
-    }
-    .form-label {
-        font-weight: bold;
-        color: #000000;
-    }
-    .form-control {
-        margin-bottom: 15px;
-    }
-</style>
+<link rel="stylesheet" href="/static/css/yumashkin.css">
 
 <div class="container">
-    <h1>Актуальные новинки</h1>
+    <h1>Latest News</h1>
     
-    <!-- Форма добавления новинки -->
+    <!-- Form for adding news -->
     <div class="news-form">
-        <h3>Добавить новинку</h3>
+        <h3>Add News</h3>
         <form method="POST" action="/news">
             <div class="form-group">
-                <label class="form-label">Заголовок:</label>
+                <label class="form-label">Title:</label>
                 <input type="text" name="title" class="form-control" 
                        value="{{title or ''}}" required>
             </div>
             
             <div class="form-group">
-                <label class="form-label">Содержание:</label>
+                <label class="form-label">Content:</label>
                 <textarea name="content" class="form-control" rows="5" 
                           required>{{content or ''}}</textarea>
             </div>
             
             <div class="form-group">
-                <label class="form-label">Дата публикации:</label>
+                <label class="form-label">Publication Date:</label>
                 <input type="date" name="news_date" class="form-control" 
                        value="{{news_date or ''}}" required>
             </div>
             
-            <button type="submit" class="btn btn-primary">Опубликовать</button>
+            <button type="submit" class="btn btn-primary">Publish</button>
         </form>
     </div>
 
-    <!-- Вывод ошибок -->
+    <!-- Error display -->
     % if errors:
     <div class="alert alert-danger">
-        <h4>Ошибки:</h4>
+        <h4>Errors:</h4>
         <ul>
             % for error in errors:
             <li>{{error}}</li>
@@ -89,16 +43,16 @@
     </div>
     % end
 
-    <!-- Список новинок -->
-    <h2>Последние новинки</h2>
+    <!-- News list -->
+    <h2>Recent News</h2>
     % if not news:
-    <p>Пока нет новинок</p>
+    <p>No news yet</p>
     % else:
     % for item in news:
     <div class="news-card">
-        <div class="news-title">{{item.get('title', 'Без названия')}}</div>
+        <div class="news-title">{{item.get('title', 'Untitled')}}</div>
         <div class="news-meta">
-            Опубликовано: {{item.get('news_date', '')}}
+            Published: {{item.get('news_date', '')}}
         </div>
         <div class="news-content">
             {{!item.get('content', '')}}

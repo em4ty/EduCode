@@ -1,71 +1,69 @@
-% rebase('layout.tpl', title='Курс C++', year=year)
-
+% rebase('layout.tpl', title='C++ Course', year=year)
 
 <div class="jumbotron">
-    <h1 class="display-4">Курс C++</h1>
+    <h1 class="display-4">C++ Course</h1>
     <img src="/static/images/Cplus_logo.png" alt="C++ Logo" class="course-logo">
 </div>
 
-
 <div class="course-content">
-    <h2>О курсе</h2>
-    <p>C++ — это мощный язык программирования, который сочетает высокую производительность с низкоуровневыми возможностями. Он широко используется в разработке операционных систем, игр, высоконагруженных сервисов и других областях, где важна эффективность.</p>
+    <h2>About the Course</h2>
+    <p>C++ is a powerful programming language that combines high performance with low-level capabilities. It is widely used in operating system development, game programming, high-load services, and other areas where efficiency is crucial.</p>
     
-    <h3>Что вы изучите:</h3>
+    <h3>What You'll Learn:</h3>
     <ul>
-        <li>Основы синтаксиса C++: переменные, типы данных, операторы</li>
-        <li>Управляющие конструкции и функции</li>
-        <li>Работу с указателями и ссылками</li>
-        <li>Объектно-ориентированное программирование в C++</li>
-        <li>Шаблоны и стандартную библиотеку (STL)</li>
-        <li>Основы многопоточного программирования</li>
-        <li>Современные стандарты C++ (11/14/17/20)</li>
-        <li>Оптимизацию и профилирование кода</li>
+        <li>C++ syntax basics: variables, data types, operators</li>
+        <li>Control structures and functions</li>
+        <li>Working with pointers and references</li>
+        <li>Object-oriented programming in C++</li>
+        <li>Templates and Standard Template Library (STL)</li>
+        <li>Multithreading fundamentals</li>
+        <li>Modern C++ standards (11/14/17/20)</li>
+        <li>Code optimization and profiling</li>
     </ul>
     
-    <h3>Для кого этот курс:</h3>
-    <p>Курс подходит как для начинающих программистов, так и для тех, кто уже знаком с другими языками и хочет освоить C++. Особенно полезен для:</p>
+    <h3>Who This Course Is For:</h3>
+    <p>The course is suitable both for beginner programmers and those already familiar with other languages who want to learn C++. Especially useful for:</p>
     <ul>
-        <li>Будущих разработчиков игр и высоконагруженных систем</li>
-        <li>Студентов технических специальностей</li>
-        <li>Программистов, работающих с embedded-системами</li>
-        <li>Тех, кто хочет понять принципы работы компьютера на низком уровне</li>
+        <li>Aspiring game and high-performance system developers</li>
+        <li>Technical students</li>
+        <li>Embedded systems programmers</li>
+        <li>Those who want to understand low-level computer principles</li>
     </ul>
     
-    <h3>Особенности языка:</h3>
+    <h3>Language Features:</h3>
     <div class="row">
         <div class="col-md-6">
             <div class="feature-card">
-                <h4><i class="fas fa-tachometer-alt"></i> Производительность</h4>
-                <p>C++ позволяет писать максимально эффективный код, сравнимый по скорости с языком ассемблера.</p>
+                <h4><i class="fas fa-tachometer-alt"></i> Performance</h4>
+                <p>C++ allows writing maximally efficient code, comparable in speed to assembly language.</p>
             </div>
         </div>
         <div class="col-md-6">
             <div class="feature-card">
-                <h4><i class="fas fa-layer-group"></i> Контроль памяти</h4>
-                <p>Ручное управление памятью дает полный контроль над ресурсами программы.</p>
+                <h4><i class="fas fa-layer-group"></i> Memory Control</h4>
+                <p>Manual memory management provides full control over program resources.</p>
             </div>
         </div>
         <div class="col-md-6">
             <div class="feature-card">
-                <h4><i class="fas fa-cogs"></i> Мультипарадигменность</h4>
-                <p>Поддержка процедурного, ООП, обобщенного и функционального программирования.</p>
+                <h4><i class="fas fa-cogs"></i> Multi-paradigm</h4>
+                <p>Supports procedural, OOP, generic, and functional programming.</p>
             </div>
         </div>
         <div class="col-md-6">
             <div class="feature-card">
-                <h4><i class="fas fa-microchip"></i> Аппаратная близость</h4>
-                <p>Позволяет работать на уровне железа, что критично для системного программирования.</p>
+                <h4><i class="fas fa-microchip"></i> Hardware Proximity</h4>
+                <p>Allows working at hardware level, critical for system programming.</p>
             </div>
         </div>
     </div>
     
-    <h3>Продолжительность и формат:</h3>
-    <p>4 месяца (48 академических часов), занятия 2 раза в неделю</p>
-    <p>Формат: 30% теории, 70% практики с реальными кейсами</p>
+    <h3>Duration and Format:</h3>
+    <p>4 months (48 academic hours), classes twice a week</p>
+    <p>Format: 30% theory, 70% practice with real-world cases</p>
     
     <div class="text-center mt-4">
-        <a href="/enroll/cpp" class="btn btn-success btn-lg">Записаться на курс</a>
-        <a href="/" class="btn btn-outline-secondary ml-2">Вернуться к выбору</a>
+        <a href="/enroll/cpp" class="btn btn-success btn-lg">Enroll in Course</a>
+        <a href="/" class="btn btn-outline-secondary ml-2">Back to Courses</a>
     </div>
 </div>

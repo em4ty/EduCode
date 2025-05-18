@@ -1,33 +1,33 @@
-% rebase('layout.tpl', title='Курс Java', year=year)
+% rebase('layout.tpl', title='Java Course', year=year)
 
 <div class="jumbotron">
-    <h1 class="display-4">Курс Java</h1>
+    <h1 class="display-4">Java Course</h1>
     <img src="/static/images/JS.png" alt="Java Logo" class="course-logo">
 </div>
 
 <div class="course-content">
-    <h2>О курсе</h2>
-    <p>Java — один из самых популярных языков программирования, используемый для создания корпоративных приложений, мобильных приложений (Android) и веб-разработки.</p>
+    <h2>About the Course</h2>
+    <p>Java is one of the most popular programming languages, used for building enterprise applications, mobile apps (Android), and web development.</p>
     
-    <h3>Что вы изучите:</h3>
+    <h3>What You'll Learn:</h3>
     <ul>
-        <li>Основы Java: синтаксис, типы данных, операторы</li>
-        <li>Объектно-ориентированное программирование в Java</li>
-        <li>Коллекции и generics</li>
-        <li>Многопоточное программирование</li>
-        <li>Работу с файлами и сетью</li>
-        <li>Основы Spring Framework</li>
-        <li>Создание Android-приложений</li>
+        <li>Java fundamentals: syntax, data types, operators</li>
+        <li>Object-oriented programming in Java</li>
+        <li>Collections and generics</li>
+        <li>Multithreading</li>
+        <li>File handling and networking</li>
+        <li>Spring Framework basics</li>
+        <li>Android app development</li>
     </ul>
     
-    <h3>Для кого этот курс:</h3>
-    <p>Для тех, кто хочет освоить один из самых востребованных языков для enterprise-разработки и мобильных приложений.</p>
+    <h3>Who This Course Is For:</h3>
+    <p>For those who want to master one of the most in-demand languages for enterprise development and mobile applications.</p>
     
-    <h3>Продолжительность:</h3>
-    <p>4 месяца (48 академических часов)</p>
+    <h3>Duration:</h3>
+    <p>4 months (48 academic hours)</p>
     
     <div class="text-center mt-4">
-        <a href="/enroll/java" class="btn btn-success btn-lg">Записаться на курс</a>
-        <a href="/" class="btn btn-outline-secondary ml-2">Вернуться к выбору</a>
+        <a href="/enroll/java" class="btn btn-success btn-lg">Enroll in Course</a>
+        <a href="/" class="btn btn-outline-secondary ml-2">Back to Courses</a>
     </div>
 </div>

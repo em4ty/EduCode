@@ -1,64 +1,33 @@
-% rebase('layout.tpl', title='Активные пользователи', year=year)
+% rebase('layout.tpl', title='Active Users', year=year)
 
-<style>
-    .container {
-        color: #000000;
-        padding: 20px;
-    }
-    .user-card {
-        background-color: #ffffff;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        padding: 15px;
-        margin-bottom: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .user-info {
-        flex-grow: 1;
-    }
-    .user-name {
-        font-weight: bold;
-        font-size: 1.2em;
-    }
-    .user-dates {
-        font-size: 0.9em;
-        color: #666;
-    }
-    .user-form {
-        background-color: #f8f9fa;
-        padding: 20px;
-        border-radius: 8px;
-        margin-bottom: 30px;
-    }
-</style>
-
+<link rel="stylesheet" href="/static/css/yumashkin.css">
 <div class="container">
-    <h1>Активные пользователи</h1>
+    <h1>Active Users</h1>
     
+    <!-- Форма добавления пользователя -->
     <div class="user-form">
-        <h3>Добавить пользователя</h3>
+        <h3>Add User</h3>
         <form method="POST" action="/users">
             <div class="form-group">
-                <label>Имя пользователя:</label>
+                <label>Username:</label>
                 <input type="text" name="username" class="form-control" value="{{username or ''}}" required>
             </div>
             <div class="form-group">
-                <label>Дата регистрации:</label>
+                <label>Registration Date:</label>
                 <input type="date" name="registration_date" class="form-control" value="{{registration_date or ''}}" required>
             </div>
             <div class="form-group">
-                <label>Дата последней активности:</label>
+                <label>Last Activity Date:</label>
                 <input type="date" name="last_activity" class="form-control" value="{{last_activity or ''}}" required>
             </div>
-            <button type="submit" class="btn btn-primary">Добавить</button>
+            <button type="submit" class="btn btn-primary">Add</button>
         </form>
     </div>
 
+    <!-- Блок отображения ошибок -->
     % if errors:
     <div class="alert alert-danger">
-        <h4>Ошибки:</h4>
+        <h4>Errors:</h4>
         <ul>
             % for error in errors:
             <li>{{error}}</li>
@@ -67,17 +36,18 @@
     </div>
     % end
 
-    <h2>Список пользователей</h2>
+    <!-- Список пользователей -->
+    <h2>Users List</h2>
     % if not users:
-    <p>Нет данных о пользователях</p>
+    <p>No user data available</p>
     % else:
     % for user in users:
     <div class="user-card">
         <div class="user-info">
             <div class="user-name">{{user.get('username', '')}}</div>
             <div class="user-dates">
-                Зарегистрирован: {{user.get('registration_date', '')}} | 
-                Последняя активность: {{user.get('last_activity', '')}}
+                Registered: {{user.get('registration_date', '')}} | 
+                Last activity: {{user.get('last_activity', '')}}
             </div>
         </div>
     </div>

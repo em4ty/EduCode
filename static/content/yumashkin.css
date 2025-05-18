@@ -1,0 +1,159 @@
+/* static/css/yumashkin.css */
+
+/* Общие стили для всех страниц Юмашкина */
+.yumashkin-container {
+    color: #000000;
+    padding: 20px;
+}
+
+/* Стили для статей */
+.yumashkin-article-item {
+    color: #000000;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.yumashkin-article-title {
+    color: #000000;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+.yumashkin-article-meta {
+    color: #000000;
+    opacity: 0.8;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.yumashkin-article-content {
+    color: #000000;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+/* Стили для форм */
+.yumashkin-form-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.yumashkin-form-label {
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Специфические стили для разных страниц */
+/* Для страницы статей */
+.yumashkin-articles-page .page-title {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Для страницы отзывов */
+.yumashkin-reviews-page .review-item {
+    border-left: 3px solid #3498db;
+}
+/* Стили карточек */
+.yumashkin-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.yumashkin-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.yumashkin-card-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #2c3e50;
+}
+
+.yumashkin-card-meta {
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
+
+.yumashkin-card-content {
+    line-height: 1.5;
+    color: #34495e;
+}
+
+/* Стили формы */
+.yumashkin-form-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+}
+
+.yumashkin-form-title {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.yumashkin-form-label {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.yumashkin-form-input, 
+.yumashkin-form-textarea {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px 12px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.yumashkin-form-textarea {
+    min-height: 120px;
+}
+
+.yumashkin-btn {
+    padding: 8px 20px;
+    font-weight: bold;
+}
+
+/* Текстовые элементы */
+.yumashkin-page-title {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.yumashkin-section-title {
+    color: #2c3e50;
+    margin: 30px 0 20px;
+}
+
+.yumashkin-no-items {
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+.yumashkin-alert {
+    margin-bottom: 20px;
+}
