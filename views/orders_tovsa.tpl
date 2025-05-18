@@ -18,32 +18,45 @@
                 <label class="tovstogan-form-label">
                     <i class="fas fa-hashtag"></i> Order Number:
                 </label>
-                <input type="text" name="order_number" class="form-control tovstogan-input" 
+                <input type="text" name="order_number" class="form-control tovstogan-input {{'is-invalid' if 'Укажите номер заказа' in errors else ''}}" 
                        value="{{order_number or ''}}" required>
+                % if 'Укажите номер заказа' in errors:
+                <div class="invalid-feedback">Please provide an order number</div>
+                % end
             </div>
             
             <div class="form-group">
                 <label class="tovstogan-form-label">
                     <i class="fas fa-user"></i> Customer Name:
                 </label>
-                <input type="text" name="client_name" class="form-control tovstogan-input" 
+                <input type="text" name="client_name" class="form-control tovstogan-input {{'is-invalid' if 'Укажите имя клиента' in errors else ''}}" 
                        value="{{client_name or ''}}" required>
+                % if 'Укажите имя клиента' in errors:
+                <div class="invalid-feedback">Please provide a customer name</div>
+                % end
             </div>
             
             <div class="form-group">
                 <label class="tovstogan-form-label">
                     <i class="fas fa-phone"></i> Customer Phone:
                 </label>
-                <input type="tel" name="phone" class="form-control tovstogan-input" 
-                       value="{{phone or ''}}" required>
+                <input type="tel" name="phone" class="form-control tovstogan-input {{'is-invalid' if 'Укажите телефон клиента' in errors else ''}}" 
+                       value="{{phone or ''}}" 
+                       placeholder="+79161234567 or 89161234567" required>
+                % if 'Укажите телефон клиента' in errors:
+                <div class="invalid-feedback">Please provide a valid Russian phone number (+79161234567 or 89161234567)</div>
+                % end
             </div>
             
             <div class="form-group">
                 <label class="tovstogan-form-label">
                     <i class="fas fa-align-left"></i> Order Description:
                 </label>
-                <textarea name="description" class="form-control tovstogan-textarea" 
+                <textarea name="description" class="form-control tovstogan-textarea {{'is-invalid' if 'Укажите описание заказа' in errors else ''}}" 
                           rows="3" required>{{description or ''}}</textarea>
+                % if 'Укажите описание заказа' in errors:
+                <div class="invalid-feedback">Please provide an order description</div>
+                % end
             </div>
             
             <button type="submit" class="btn btn-info tovstogan-submit-btn">
@@ -97,3 +110,16 @@
     % end
     % end
 </div>
+
+<script>
+document.querySelector('form').addEventListener('submit', function(e) {
+    const phone = document.querySelector('input[name="phone"]').value;
+    const phoneRegex = /^(\+7|8)\d{10}$/;
+    const cleanedPhone = phone.replace(/[^\d+]/g, '');
+    
+    if (!phoneRegex.test(cleanedPhone)) {
+        e.preventDefault();
+        alert('Please enter a valid Russian phone number (+79161234567 or 89161234567)');
+    }
+});
+</script>
