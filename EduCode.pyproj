@@ -47,6 +47,7 @@
     <Content Include="static\content\bootstrap.css" />
     <Content Include="static\content\bootstrap.min.css" />
     <Content Include="static\content\site.css" />
+    <Content Include="static\content\tovstogan.css" />
     <Content Include="static\content\yumashkin.css">
       <SubType>Code</SubType>
     </Content>
@@ -73,12 +74,19 @@
     <Content Include="static\scripts\respond.js" />
     <Content Include="static\scripts\respond.min.js" />
     <Content Include="static\scripts\_references.js" />
+    <Content Include="views\articles_tovsa.tpl" />
+    <Content Include="views\news_tovsa.tpl" />
+    <Content Include="views\orders_tovsa.tpl" />
+    <Content Include="views\partners_tovsa.tpl" />
+    <Content Include="views\reviews_tovsa.tpl" />
+    <Content Include="views\users_tovsa.tpl" />
     <Content Include="views\users.tpl" />
     <Content Include="views\partners.tpl" />
     <Content Include="views\articles.tpl" />
     <Content Include="views\news.tpl" />
     <Content Include="views\orders.tpl" />
     <Content Include="views\reviews.tpl" />
+    <Content Include="views\tovsa_base.tpl" />
     <Content Include="views\yumashkin_base.tpl" />
     <Content Include="views\cpp_course.tpl" />
     <Content Include="views\java_course.tpl" />

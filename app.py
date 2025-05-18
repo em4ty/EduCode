@@ -62,6 +62,12 @@ def initialize_data_files():
         'yumashkin_news',
         'yumashkin_partners',
         'yumashkin_users'
+        'tovstogan_reviews',
+        'tovstogan_articles',
+        'tovstogan_orders',
+        'tovstogan_news',
+        'tovstogan_partners',
+        'tovstogan_users'
     ]
     
     for filename in data_files:
@@ -323,7 +329,7 @@ if __name__ == '__main__':
             print(f"Error in show_news: {str(e)}")
             return "Произошла ошибка при загрузке новинок. Пожалуйста, попробуйте позже."
 
-    @bottle.route('/news', method='POST')
+    @bottle.route('/news_tovsa', method='POST')
     def add_news():
         try:
             form = bottle.request.forms
@@ -478,6 +484,339 @@ if __name__ == '__main__':
             print(f"Error in add_user: {str(e)}")
             return "Данные пользователя сохранены"
     
+        # Товстоган - Отзывы
+    @bottle.route('/reviews_tovsa')
+    def show_reviews_tovsa():
+        try:
+            errors = bottle.request.query.get('errors', '')
+            reviews = load_data('tovstogan_reviews')
+            reviews.sort(key=lambda x: x.get('date', ''), reverse=True)
+            return bottle.template('reviews_tovsa',
+                                year=datetime.now().year,
+                                reviews=reviews,
+                                errors=errors.split('|') if errors else [],
+                                author=bottle.request.query.get('author', ''),
+                                text=bottle.request.query.get('text', ''),
+                                date=bottle.request.query.get('date', ''))
+        except Exception as e:
+            print(f"Error in show_reviews_tovsa: {str(e)}")
+            return "Произошла ошибка при загрузке отзывов. Пожалуйста, попробуйте позже."
+        
+    @bottle.route('/reviews_tovsa', method='POST')
+    def add_review_tovsa():
+        try:
+            author = bottle.request.forms.get('author', '').strip()
+            text = bottle.request.forms.get('text', '').strip()
+            date = bottle.request.forms.get('date', '').strip()
+        
+            errors = []
+            if not author: errors.append("Укажите ваше имя")
+            if not text: errors.append("Напишите текст отзыва")
+            if not date: errors.append("Укажите дату")
+        
+            if errors:
+                query_params = {
+                    'errors': '|'.join(errors),
+                    'author': author,
+                    'text': text,
+                    'date': date
+                }
+                return bottle.redirect(f"/reviews_tovsa?{'&'.join(f'{k}={v}' for k,v in query_params.items())}")
+        
+            reviews = load_data('tovstogan_reviews')
+            reviews.append({
+                'author': author,
+                'text': text,
+                'date': date,
+                'created_at': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            })
+            save_data('tovstogan_reviews', reviews)
+            return bottle.redirect('/reviews_tovsa')
+        except Exception as e:
+            return "Отзыв был добавлен."
+
+    # Товстоган - Статьи
+    @bottle.route('/articles_tovsa')
+    def show_articles_tovsa():
+        try:
+            query = bottle.request.query
+            errors = query.get('errors', '').split('|') if query.get('errors') else []
+            articles = load_data('tovstogan_articles')
+            articles.sort(key=lambda x: x.get('date', ''), reverse=True)
+            return bottle.template('articles_tovsa',
+                                year=datetime.now().year,
+                                articles=articles,
+                                errors=errors,
+                                title=query.get('title', ''),
+                                author=query.get('author', ''),
+                                content=query.get('content', ''))
+        except Exception as e:
+            print(f"Error in show_articles_tovsa: {str(e)}")
+            return "Произошла ошибка при загрузке статей. Пожалуйста, попробуйте позже."
+
+    @bottle.route('/articles_tovsa', method='POST')
+    def add_article_tovsa():
+        try:
+            form = bottle.request.forms
+            title = form.getunicode('title', '').strip()
+            author = form.getunicode('author', '').strip()
+            content = form.getunicode('content', '').strip()
+        
+            errors = []
+            if not title: errors.append("Укажите название статьи")
+            if not author: errors.append("Укажите автора статьи")
+            if not content: errors.append("Напишите содержание статьи")
+        
+            if errors:
+                from urllib.parse import quote
+                params = {
+                    'errors': '|'.join(errors),
+                    'title': quote(title),
+                    'author': quote(author),
+                    'content': quote(content)
+                }
+                return bottle.redirect(f"/articles_tovsa?{'&'.join(f'{k}={v}' for k,v in params.items())}")
+        
+            articles = load_data('tovstogan_articles')
+            articles.append({
+                'title': title,
+                'author': author,
+                'content': content,
+                'date': datetime.now().strftime('%Y-%m-%d'),
+                'created_at': datetime.now().isoformat()
+            })
+            save_data('tovstogan_articles', articles)
+            return bottle.redirect('/articles_tovsa')
+        except Exception as e:
+            print(f"Error in add_article_tovsa: {str(e)}")
+            return "Статья добавлена"
+    
+    # Товстоган - Заказы
+    @bottle.route('/orders_tovsa')
+    def show_orders_tovsa():
+        try:
+            query = bottle.request.query
+            errors = query.get('errors', '')
+            orders = load_data('tovstogan_orders')
+            orders.sort(key=lambda x: x.get('order_date', ''), reverse=True)
+            return bottle.template('orders_tovsa',
+                                year=datetime.now().year,
+                                orders=orders,
+                                errors=errors.split('|') if errors else [],
+                                order_number=query.get('order_number', ''),
+                                client_name=query.get('client_name', ''),
+                                description=query.get('description', ''),
+                                phone=query.get('phone', ''))
+        except Exception as e:
+            print(f"Error in show_orders_tovsa: {str(e)}")
+            return "Произошла ошибка при загрузке заказов. Пожалуйста, попробуйте позже."
+
+    @bottle.route('/orders_tovsa', method='POST')
+    def add_order_tovsa():
+        try:
+            form = bottle.request.forms
+            order_number = form.get('order_number', '').strip()
+            client_name = form.get('client_name', '').strip()
+            description = form.get('description', '').strip()
+            phone = form.get('phone', '').strip()
+        
+            errors = []
+            if not order_number: errors.append("Укажите номер заказа")
+            if not client_name: errors.append("Укажите имя клиента")
+            if not description: errors.append("Укажите описание заказа")
+            if not phone: errors.append("Укажите телефон клиента")
+        
+            if errors:
+                from urllib.parse import quote
+                params = {
+                    'errors': '|'.join(errors),
+                    'order_number': quote(order_number),
+                    'client_name': quote(client_name),
+                    'description': quote(description),
+                    'phone': quote(phone)
+                }
+                return bottle.redirect(f"/orders_tovsa?{'&'.join(f'{k}={v}' for k,v in params.items())}")
+        
+            orders = load_data('tovstogan_orders')
+            orders.append({
+                'order_number': order_number,
+                'client_name': client_name,
+                'description': description,
+                'phone': phone,
+                'order_date': datetime.now().strftime('%Y-%m-%d'),
+                'created_at': datetime.now().isoformat()
+            })
+            save_data('tovstogan_orders', orders)
+            return bottle.redirect('/orders_tovsa')
+        except Exception as e: 
+            return "Заказ сохранен."
+        
+    # Товстоган - Новости
+    @bottle.route('/news_tovsa')
+    def show_news_tovsa():
+        try:
+            query = bottle.request.query
+            errors = query.get('errors', '')
+            news = load_data('tovstogan_news')
+            news.sort(key=lambda x: x.get('news_date', ''), reverse=True)
+            return bottle.template('news_tovsa',
+                                year=datetime.now().year,
+                                news=news,
+                                errors=errors.split('|') if errors else [],
+                                title=query.get('title', ''),
+                                content=query.get('content', ''),
+                                news_date=query.get('news_date', ''))
+        except Exception as e:
+            print(f"Error in show_news_tovsa: {str(e)}")
+            return "Произошла ошибка при загрузке новинок. Пожалуйста, попробуйте позже."
+
+    @bottle.route('/news_tovsa', method='POST')
+    def add_news_tovsa():
+        try:
+            form = bottle.request.forms
+            title = form.getunicode('title', '').strip()
+            content = form.getunicode('content', '').strip()
+            news_date = form.get('news_date', '').strip()
+        
+            errors = []
+            if not title: errors.append("Укажите заголовок новинки")
+            if not content: errors.append("Напишите содержание новинки")
+            if not news_date: errors.append("Укажите дату публикации")
+        
+            if errors:
+                from urllib.parse import quote
+                params = {
+                    'errors': '|'.join(errors),
+                    'title': quote(title),
+                    'content': quote(content),
+                    'news_date': quote(news_date)
+                }
+                return bottle.redirect(f"/news_tovsa?{'&'.join(f'{k}={v}' for k,v in params.items())}")
+        
+            news = load_data('tovstogan_news')
+            news.append({
+                'title': title,
+                'content': content,
+                'news_date': news_date,
+                'created_at': datetime.now().isoformat()
+            })
+            save_data('tovstogan_news', news)
+            return bottle.redirect('/news_tovsa')
+        except Exception as e:
+            return "Новость сохранена."
+
+    # Товстоган - Партнеры
+    @bottle.route('/partners_tovsa')
+    def show_partners_tovsa():
+        try:
+            query = bottle.request.query
+            partners = load_data('tovstogan_partners')
+            partners.sort(key=lambda x: x.get('company_name', '').lower())
+            return bottle.template('partners_tovsa',
+                                year=datetime.now().year,
+                                partners=partners,
+                                errors=query.get('errors', '').split('|') if query.get('errors') else [],
+                                company_name=query.get('company_name', ''),
+                                contact_person=query.get('contact_person', ''),
+                                phone=query.get('phone', ''),
+                                email=query.get('email', ''))
+        except Exception as e:
+            print(f"Error in show_partners_tovsa: {str(e)}")
+            return "Ошибка загрузки данных партнёров"
+
+    @bottle.route('/partners_tovsa', method='POST')
+    def add_partner_tovsa():
+        try:
+            form = bottle.request.forms
+            company_name = form.getunicode('company_name', '').strip()
+            contact_person = form.getunicode('contact_person', '').strip()
+            phone = form.get('phone', '').strip()
+            email = form.get('email', '').strip()
+        
+            errors = []
+            if not company_name: errors.append("Укажите название компании")
+            if not contact_person: errors.append("Укажите контактное лицо")
+            if not phone: errors.append("Укажите телефон")
+            if not email: errors.append("Укажите email")
+        
+            if errors:
+                from urllib.parse import quote
+                params = {
+                    'errors': '|'.join(errors),
+                    'company_name': quote(company_name),
+                    'contact_person': quote(contact_person),
+                    'phone': quote(phone),
+                    'email': quote(email)
+                }
+                return bottle.redirect(f"/partners_tovsa?{'&'.join(f'{k}={v}' for k,v in params.items())}")
+        
+            partners = load_data('tovstogan_partners')
+            partners.append({
+                'company_name': company_name,
+                'contact_person': contact_person,
+                'phone': phone,
+                'email': email,
+                'created_at': datetime.now().isoformat()
+            })
+            save_data('tovstogan_partners', partners)
+            return bottle.redirect('/partners_tovsa')
+        except Exception as e:
+            return "Данные партнёра сохранены"
+        
+    # Товстоган - Пользователи
+    @bottle.route('/users_tovsa')
+    def show_users_tovsa():
+        try:
+            query = bottle.request.query
+            users = load_data('tovstogan_users')
+            users.sort(key=lambda x: x.get('last_activity', ''), reverse=True)
+            return bottle.template('users_tovsa',
+                                year=datetime.now().year,
+                                users=users,
+                                errors=query.get('errors', '').split('|') if query.get('errors') else [],
+                                username=query.get('username', ''),
+                                registration_date=query.get('registration_date', ''),
+                                last_activity=query.get('last_activity', ''))
+        except Exception as e:
+            print(f"Error in show_users_tovsa: {str(e)}")
+            return "Ошибка загрузки данных пользователей"
+
+    @bottle.route('/users_tovsa', method='POST')
+    def add_user_tovsa():
+        try:
+            form = bottle.request.forms
+            username = form.getunicode('username', '').strip()
+            registration_date = form.get('registration_date', '').strip()
+            last_activity = form.get('last_activity', '').strip()
+        
+            errors = []
+            if not username: errors.append("Укажите имя пользователя")
+            if not registration_date: errors.append("Укажите дату регистрации")
+            if not last_activity: errors.append("Укажите дату последней активности")
+        
+            if errors:
+                from urllib.parse import quote
+                params = {
+                    'errors': '|'.join(errors),
+                    'username': quote(username),
+                    'registration_date': quote(registration_date),
+                    'last_activity': quote(last_activity)
+                }
+                return bottle.redirect(f"/users_tovsa?{'&'.join(f'{k}={v}' for k,v in params.items())}")
+        
+            users = load_data('tovstogan_users')
+            users.append({
+                'username': username,
+                'registration_date': registration_date,
+                'last_activity': last_activity,
+                'created_at': datetime.now().isoformat()
+            })
+            save_data('tovstogan_users', users)
+            return bottle.redirect('/users_tovsa')
+        except Exception as e:
+            print(f"Error in add_user_tovsa: {str(e)}")
+            return "Данные пользователя сохранены"
+        
     # Static files
     @bottle.route('/static/<filepath:path>')
     def server_static(filepath):

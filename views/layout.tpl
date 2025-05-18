@@ -54,22 +54,22 @@
                 <i class="glyphicon glyphicon-user"></i> Tovstogan <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" style="background-color: #2c3e50; border: 1px solid #34495e;">
-                <li><a href="/reviews2" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
+                <li><a href="/reviews_tovsa" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
                     <i class="glyphicon glyphicon-comment"></i> Reviews
                 </a></li>
-                <li><a href="/articles2" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
+                <li><a href="/articles_tovsa" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
                     <i class="glyphicon glyphicon-book"></i> Useful Articles
                 </a></li>
-                <li><a href="/orders2" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
+                <li><a href="/orders_tovsa" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
                     <i class="glyphicon glyphicon-shopping-cart"></i> Orders
                 </a></li>
-                <li><a href="/news2" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
+                <li><a href="/news_tovsa" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
                     <i class="glyphicon glyphicon-bullhorn"></i> Latest News
                 </a></li>
-                <li><a href="/partners2" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
+                <li><a href="/partners_tovsa" style="color: #ecf0f1; padding: 10px 20px; border-bottom: 1px solid #34495e;">
                     <i class="glyphicon glyphicon-handshake"></i> Partner Companies
                 </a></li>
-                <li><a href="/users2" style="color: #ecf0f1; padding: 10px 20px;">
+                <li><a href="/users_tovsa" style="color: #ecf0f1; padding: 10px 20px;">
                     <i class="glyphicon glyphicon-stats"></i> Active Users
                 </a></li>
             </ul>
